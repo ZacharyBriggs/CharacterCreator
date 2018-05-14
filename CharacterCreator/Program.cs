@@ -15,6 +15,7 @@ namespace CharacterCreator
         public Stat(string name, int value)
         {
             Name = name;
+            Value = value;
         }
         public Stat(string name, int value, string description)
         {
@@ -58,11 +59,11 @@ namespace CharacterCreator
             Job = job;
             CharacterGrowths = charGrowths;
             Stats = Job.BaseStats;
-            for (int i = 0; i < Job.ClassGrowths.Count; i++)
-            {
+            //for (int i = 0; i < Job.ClassGrowths.Count; i++)
+            //{
                 //Growths[i].Value = Job.ClassGrowths[i].Value + CharacterGrowths[i].Value;
-                //MaxStats[i].Value = Job.MaxStats[i].Value;
-            }
+                //MaxStats[i].Value += Job.MaxStats[i].Value;
+            //}
 
 
         }

@@ -1,0 +1,275 @@
+{
+    "Name": "Dummy",
+    "Level": 0,
+    "Experience": 0,
+    "Job": {
+        "Name": "Mercenary",
+        "Designation": "Infantry",
+        "BaseWeaponRanks": null,
+        "BaseStats": [
+            {
+                "Name": "HP",
+                "Value": 99,
+                "Description": null
+            },
+            {
+                "Name": "MaxHP",
+                "Value": 99,
+                "Description": null
+            },
+            {
+                "Name": "Str",
+                "Value": 82,
+                "Description": null
+            },
+            {
+                "Name": "Mag",
+                "Value": 434,
+                "Description": null
+            },
+            {
+                "Name": "Skill",
+                "Value": 0,
+                "Description": null
+            },
+            {
+                "Name": "Spd",
+                "Value": 9,
+                "Description": null
+            },
+            {
+                "Name": "Luck",
+                "Value": 65,
+                "Description": null
+            },
+            {
+                "Name": "Def",
+                "Value": 21,
+                "Description": null
+            },
+            {
+                "Name": "Res",
+                "Value": 12,
+                "Description": null
+            },
+            {
+                "Name": "Move",
+                "Value": 1,
+                "Description": null
+            }
+        ],
+        "MaxStats": [
+            {
+                "Name": "HP",
+                "Value": 99,
+                "Description": null
+            },
+            {
+                "Name": "MaxHP",
+                "Value": 99,
+                "Description": null
+            },
+            {
+                "Name": "Str",
+                "Value": 82,
+                "Description": null
+            },
+            {
+                "Name": "Mag",
+                "Value": 434,
+                "Description": null
+            },
+            {
+                "Name": "Skill",
+                "Value": 0,
+                "Description": null
+            },
+            {
+                "Name": "Spd",
+                "Value": 9,
+                "Description": null
+            },
+            {
+                "Name": "Luck",
+                "Value": 65,
+                "Description": null
+            },
+            {
+                "Name": "Def",
+                "Value": 21,
+                "Description": null
+            },
+            {
+                "Name": "Res",
+                "Value": 12,
+                "Description": null
+            },
+            {
+                "Name": "Move",
+                "Value": 1,
+                "Description": null
+            }
+        ],
+        "ClassGrowths": [
+            {
+                "Name": "HP",
+                "Value": 99,
+                "Description": null
+            },
+            {
+                "Name": "MaxHP",
+                "Value": 99,
+                "Description": null
+            },
+            {
+                "Name": "Str",
+                "Value": 82,
+                "Description": null
+            },
+            {
+                "Name": "Mag",
+                "Value": 434,
+                "Description": null
+            },
+            {
+                "Name": "Skill",
+                "Value": 0,
+                "Description": null
+            },
+            {
+                "Name": "Spd",
+                "Value": 9,
+                "Description": null
+            },
+            {
+                "Name": "Luck",
+                "Value": 65,
+                "Description": null
+            },
+            {
+                "Name": "Def",
+                "Value": 21,
+                "Description": null
+            },
+            {
+                "Name": "Res",
+                "Value": 12,
+                "Description": null
+            },
+            {
+                "Name": "Move",
+                "Value": 1,
+                "Description": null
+            }
+        ],
+        "Promotions": null
+    },
+    "WeaponRanks": null,
+    "Inventory": null,
+    "CharacterGrowths": [
+        {
+            "Name": "HP",
+            "Value": 99,
+            "Description": null
+        },
+        {
+            "Name": "MaxHP",
+            "Value": 99,
+            "Description": null
+        },
+        {
+            "Name": "Str",
+            "Value": 82,
+            "Description": null
+        },
+        {
+            "Name": "Mag",
+            "Value": 434,
+            "Description": null
+        },
+        {
+            "Name": "Skill",
+            "Value": 0,
+            "Description": null
+        },
+        {
+            "Name": "Spd",
+            "Value": 9,
+            "Description": null
+        },
+        {
+            "Name": "Luck",
+            "Value": 65,
+            "Description": null
+        },
+        {
+            "Name": "Def",
+            "Value": 21,
+            "Description": null
+        },
+        {
+            "Name": "Res",
+            "Value": 12,
+            "Description": null
+        },
+        {
+            "Name": "Move",
+            "Value": 1,
+            "Description": null
+        }
+    ],
+    "MaxStats": null,
+    "Stats": [
+        {
+            "Name": "HP",
+            "Value": 99,
+            "Description": null
+        },
+        {
+            "Name": "MaxHP",
+            "Value": 99,
+            "Description": null
+        },
+        {
+            "Name": "Str",
+            "Value": 82,
+            "Description": null
+        },
+        {
+            "Name": "Mag",
+            "Value": 434,
+            "Description": null
+        },
+        {
+            "Name": "Skill",
+            "Value": 0,
+            "Description": null
+        },
+        {
+            "Name": "Spd",
+            "Value": 9,
+            "Description": null
+        },
+        {
+            "Name": "Luck",
+            "Value": 65,
+            "Description": null
+        },
+        {
+            "Name": "Def",
+            "Value": 21,
+            "Description": null
+        },
+        {
+            "Name": "Res",
+            "Value": 12,
+            "Description": null
+        },
+        {
+            "Name": "Move",
+            "Value": 1,
+            "Description": null
+        }
+    ],
+    "Growths": null
+}
