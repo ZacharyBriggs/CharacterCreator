@@ -10,12 +10,13 @@ namespace CharacterCreator
     {
         public string Name;
         public int Value;
+        public string Description;
 
-        public Stat(string name)
+        public Stat(string name, int value)
         {
             Name = name;
         }
-        public Stat(string name, int value)
+        public Stat(string name, int value, string description)
         {
             Name = name;
             Value = value;
@@ -56,11 +57,11 @@ namespace CharacterCreator
             Name = name;
             Job = job;
             CharacterGrowths = charGrowths;
+            Stats = Job.BaseStats;
             for (int i = 0; i < Job.ClassGrowths.Count; i++)
             {
-                Growths[i].Value = Job.ClassGrowths[i].Value + CharacterGrowths[i].Value;
-                MaxStats[i].Value = Job.MaxStats[i].Value;
-                Stats[i].Value = Job.BaseStats[i].Value;
+                //Growths[i].Value = Job.ClassGrowths[i].Value + CharacterGrowths[i].Value;
+                //MaxStats[i].Value = Job.MaxStats[i].Value;
             }
 
 
