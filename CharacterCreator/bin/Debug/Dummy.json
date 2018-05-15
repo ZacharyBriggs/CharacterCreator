@@ -9,22 +9,22 @@
         "BaseStats": [
             {
                 "Name": "HP",
-                "Value": 99,
+                "Value": 0,
                 "Description": null
             },
             {
                 "Name": "MaxHP",
-                "Value": 99,
+                "Value": 0,
                 "Description": null
             },
             {
                 "Name": "Str",
-                "Value": 82,
+                "Value": 9,
                 "Description": null
             },
             {
                 "Name": "Mag",
-                "Value": 434,
+                "Value": 0,
                 "Description": null
             },
             {
@@ -34,49 +34,49 @@
             },
             {
                 "Name": "Spd",
-                "Value": 9,
+                "Value": 0,
                 "Description": null
             },
             {
                 "Name": "Luck",
-                "Value": 65,
+                "Value": 0,
                 "Description": null
             },
             {
                 "Name": "Def",
-                "Value": 21,
+                "Value": 0,
                 "Description": null
             },
             {
                 "Name": "Res",
-                "Value": 12,
+                "Value": 0,
                 "Description": null
             },
             {
                 "Name": "Move",
-                "Value": 1,
+                "Value": 0,
                 "Description": null
             }
         ],
         "MaxStats": [
             {
                 "Name": "HP",
-                "Value": 99,
+                "Value": 0,
                 "Description": null
             },
             {
                 "Name": "MaxHP",
-                "Value": 99,
+                "Value": 0,
                 "Description": null
             },
             {
                 "Name": "Str",
-                "Value": 82,
+                "Value": 9,
                 "Description": null
             },
             {
                 "Name": "Mag",
-                "Value": 434,
+                "Value": 0,
                 "Description": null
             },
             {
@@ -86,49 +86,49 @@
             },
             {
                 "Name": "Spd",
-                "Value": 9,
+                "Value": 0,
                 "Description": null
             },
             {
                 "Name": "Luck",
-                "Value": 65,
+                "Value": 0,
                 "Description": null
             },
             {
                 "Name": "Def",
-                "Value": 21,
+                "Value": 0,
                 "Description": null
             },
             {
                 "Name": "Res",
-                "Value": 12,
+                "Value": 0,
                 "Description": null
             },
             {
                 "Name": "Move",
-                "Value": 1,
+                "Value": 0,
                 "Description": null
             }
         ],
         "ClassGrowths": [
             {
                 "Name": "HP",
-                "Value": 99,
+                "Value": 0,
                 "Description": null
             },
             {
                 "Name": "MaxHP",
-                "Value": 99,
+                "Value": 0,
                 "Description": null
             },
             {
                 "Name": "Str",
-                "Value": 82,
+                "Value": 9,
                 "Description": null
             },
             {
                 "Name": "Mag",
-                "Value": 434,
+                "Value": 0,
                 "Description": null
             },
             {
@@ -138,27 +138,27 @@
             },
             {
                 "Name": "Spd",
-                "Value": 9,
+                "Value": 0,
                 "Description": null
             },
             {
                 "Name": "Luck",
-                "Value": 65,
+                "Value": 0,
                 "Description": null
             },
             {
                 "Name": "Def",
-                "Value": 21,
+                "Value": 0,
                 "Description": null
             },
             {
                 "Name": "Res",
-                "Value": 12,
+                "Value": 0,
                 "Description": null
             },
             {
                 "Name": "Move",
-                "Value": 1,
+                "Value": 0,
                 "Description": null
             }
         ],
@@ -169,22 +169,22 @@
     "CharacterGrowths": [
         {
             "Name": "HP",
-            "Value": 99,
+            "Value": 0,
             "Description": null
         },
         {
             "Name": "MaxHP",
-            "Value": 99,
+            "Value": 0,
             "Description": null
         },
         {
             "Name": "Str",
-            "Value": 82,
+            "Value": 9,
             "Description": null
         },
         {
             "Name": "Mag",
-            "Value": 434,
+            "Value": 0,
             "Description": null
         },
         {
@@ -194,27 +194,27 @@
         },
         {
             "Name": "Spd",
-            "Value": 9,
+            "Value": 0,
             "Description": null
         },
         {
             "Name": "Luck",
-            "Value": 65,
+            "Value": 0,
             "Description": null
         },
         {
             "Name": "Def",
-            "Value": 21,
+            "Value": 0,
             "Description": null
         },
         {
             "Name": "Res",
-            "Value": 12,
+            "Value": 0,
             "Description": null
         },
         {
             "Name": "Move",
-            "Value": 1,
+            "Value": 0,
             "Description": null
         }
     ],
@@ -222,22 +222,22 @@
     "Stats": [
         {
             "Name": "HP",
-            "Value": 99,
+            "Value": 0,
             "Description": null
         },
         {
             "Name": "MaxHP",
-            "Value": 99,
+            "Value": 0,
             "Description": null
         },
         {
             "Name": "Str",
-            "Value": 82,
+            "Value": 9,
             "Description": null
         },
         {
             "Name": "Mag",
-            "Value": 434,
+            "Value": 0,
             "Description": null
         },
         {
@@ -247,27 +247,27 @@
         },
         {
             "Name": "Spd",
-            "Value": 9,
+            "Value": 0,
             "Description": null
         },
         {
             "Name": "Luck",
-            "Value": 65,
+            "Value": 0,
             "Description": null
         },
         {
             "Name": "Def",
-            "Value": 21,
+            "Value": 0,
             "Description": null
         },
         {
             "Name": "Res",
-            "Value": 12,
+            "Value": 0,
             "Description": null
         },
         {
             "Name": "Move",
-            "Value": 1,
+            "Value": 0,
             "Description": null
         }
     ],

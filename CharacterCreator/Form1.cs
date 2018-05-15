@@ -32,17 +32,11 @@ namespace CharacterCreator
             FeStats.Add(Def);
             FeStats.Add(Res);
             FeStats.Add(MoveStat);
-            MaxStats = FeStats;
-            StatGrowths = FeStats;
-            foreach (var stat in MaxStats)
-            {
-                stat.Value = 99;
-            }
             Mercenary = new Job("Mercenary", "Infantry",FeStats, FeStats, FeStats);
             Guy = new Character("Dummy",Mercenary,FeStats);
             List<Character> allCharacters = new List<Character>();
             List<String> key = new List<string>();
-            Dictionary<String, Character> charactersDictionary = new Dictionary<string, Character>();
+            charactersDictionary = new Dictionary<string, Character>();
             charactersDictionary.Add(Guy.Name, Guy);
             currentCharacter = Guy;
             comboBox1.Items.Add(Guy.Name);
@@ -54,25 +48,27 @@ namespace CharacterCreator
         {
             if (comboBox1.Text == Guy.Name)
                 currentCharacter = Guy;
-            hpBox.Text += currentCharacter.Stats[0].Value;
-            hpBox.Text += "/" + currentCharacter.Stats[1].Value;
-            strBox.Text += currentCharacter.Stats[2].Value;
-            magBox.Text += currentCharacter.Stats[3].Value;
-            skillBox.Text += currentCharacter.Stats[4].Value;
-            spdBox.Text += currentCharacter.Stats[5].Value;
-            luckBox.Text += currentCharacter.Stats[6].Value;
-            defBox.Text += currentCharacter.Stats[7].Value;
-            resBox.Text += currentCharacter.Stats[8].Value;
-            moveBox.Text += currentCharacter.Stats[9].Value;
-            classBox.Text = currentCharacter.Job.Name;
-            lvlBox.Text += currentCharacter.Level;
-            expBox.Text += currentCharacter.Experience;
+            hpBox.Text = currentCharacter.Stats[0].Value.ToString();
+            maxHpBox.Text += currentCharacter.Stats[1].Value.ToString();
+            strBox.Text += currentCharacter.Stats[2].Value.ToString();
+            magBox.Text += currentCharacter.Stats[3].Value.ToString();
+            skillBox.Text += currentCharacter.Stats[4].Value.ToString();
+            spdBox.Text += currentCharacter.Stats[5].Value.ToString();
+            luckBox.Text += currentCharacter.Stats[6].Value.ToString();
+            defBox.Text += currentCharacter.Stats[7].Value.ToString();
+            resBox.Text += currentCharacter.Stats[8].Value.ToString();
+            moveBox.Text += currentCharacter.Stats[9].Value.ToString();
+            classesBox.Text = currentCharacter.Job.Name;
+            lvlBox.Text += currentCharacter.Level.ToString();
+            expBox.Text += currentCharacter.Experience.ToString();
         }
-
-
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            currentCharacter.Name = comboBox1.Text;
+            //If character is not in combobox or dictionary do this
+                //comboBox1.Items.Add(currentCharacter.Name);
+                //charactersDictionary.Add(currentCharacter.Name,currentCharacter);
             string currentChar = JsonConvert.SerializeObject(Guy);
             var path = System.IO.Path.Combine(Environment.CurrentDirectory, currentCharacter.Name +".json");
             System.IO.File.WriteAllText(path, currentChar);
@@ -137,6 +133,38 @@ namespace CharacterCreator
             if (moveBox.Text != "")
                 stat = Int32.Parse(moveBox.Text);
             currentCharacter.Stats[9].Value = stat;
+        }
+
+        private void lvlBox_TextChanged(object sender, EventArgs e)
+        {
+            int stat = 0;
+            if (lvlBox.Text != "")
+                stat = Int32.Parse(lvlBox.Text);
+            currentCharacter.Level = stat;
+        }
+
+        private void expBox_TextChanged(object sender, EventArgs e)
+        {
+            int stat = 0;
+            if (expBox.Text != "")
+                stat = Int32.Parse(expBox.Text);
+            currentCharacter.Experience = stat;
+        }
+
+        private void hpBox_TextChanged(object sender, EventArgs e)
+        {
+            int stat = 0;
+            if (hpBox.Text != "")
+                stat = Int32.Parse(hpBox.Text);
+            currentCharacter.Stats[0].Value = stat;
+        }
+
+        private void maxHpBox_TextChanged(object sender, EventArgs e)
+        {
+            int stat = 0;
+            if (maxHpBox.Text != "")
+                stat = Int32.Parse(maxHpBox.Text);
+            currentCharacter.Stats[1].Value = stat;
         }
     }
 }
