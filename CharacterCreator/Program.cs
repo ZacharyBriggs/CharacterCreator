@@ -10,6 +10,7 @@ namespace CharacterCreator
     {
         public string Name;
         public int Value;
+        public int Growth;
         public string Description;
 
         public Stat(string name, int value)
@@ -24,15 +25,23 @@ namespace CharacterCreator
         }
     }
 
+    public class Modifiers
+    {
+
+    }
+
     public class Job
     {
-        public Job(string name, string type, List<Stat> basestats, List<Stat> maxstats, List<Stat> growths)
+        public Job(string name, string type)
         {
+            BaseStats = new List<Stat>();
+            MaxStats = new List<Stat>();
+            ClassGrowths = new List<Stat>();
             Name = name;
             Designation = type;
-            BaseStats = basestats;
-            MaxStats = maxstats;
-            ClassGrowths = growths;
+            CreateStats(BaseStats);
+            CreateStats(MaxStats);
+            CreateStats(ClassGrowths);
         }
         public string Name; //Name of the class.
         public string Designation; //The type of the class. Eg mounted, flying, armored
@@ -41,6 +50,29 @@ namespace CharacterCreator
         public List<Stat> MaxStats; //The highest this classes stats can be.
         public List<Stat> ClassGrowths; //The chances of each stat increasing by 1 on level up.
         public List<Job> Promotions; //The classes this class can promote to.
+        public void CreateStats(List<Stat> stats)
+        {
+            Stat HP = new Stat("HP", 0);
+            Stat MaxHP = new Stat("MaxHP", 0);
+            Stat Str = new Stat("Str", 0);
+            Stat Mag = new Stat("Mag", 0);
+            Stat Skill = new Stat("Skill", 0);
+            Stat Spd = new Stat("Spd", 0);
+            Stat Luck = new Stat("Luck", 0);
+            Stat Def = new Stat("Def", 0);
+            Stat Res = new Stat("Res", 0);
+            Stat MoveStat = new Stat("Move", 0);
+            stats.Add(HP);
+            stats.Add(MaxHP);
+            stats.Add(Str);
+            stats.Add(Mag);
+            stats.Add(Skill);
+            stats.Add(Spd);
+            stats.Add(Luck);
+            stats.Add(Def);
+            stats.Add(Res);
+            stats.Add(MoveStat);
+        }
     }
 
     public class Item
@@ -53,19 +85,20 @@ namespace CharacterCreator
 
     public class Character
     {
-        public Character(string name, Job job, List<Stat> charGrowths)
+        public Character(string name, Job job)
         {
             Name = name;
             Job = job;
-            CharacterGrowths = charGrowths;
+            CharacterGrowths = new List<Stat>();
+            MaxStats = new List<Stat>();
+            Growths = new List<Stat>();
+            Job.CreateStats(CharacterGrowths);
             Stats = Job.BaseStats;
             //for (int i = 0; i < Job.ClassGrowths.Count; i++)
             //{
                 //Growths[i].Value = Job.ClassGrowths[i].Value + CharacterGrowths[i].Value;
                 //MaxStats[i].Value += Job.MaxStats[i].Value;
             //}
-
-
         }
         public string Name; //Name of the character.
         public int Level; //Current level of character. Goes up by 1 when the character gets 100 experience.
@@ -77,6 +110,8 @@ namespace CharacterCreator
         public List<Stat> MaxStats; //The character's class' max stats plus any modifiers unique to this character.
         public List<Stat> Stats; //Combination of this character's base stats, the class base stats,and any stat increases from level ups.
         public List<Stat> Growths; //Combination of the character's and their class' growths.
+
+
     }
     static class Program
     {

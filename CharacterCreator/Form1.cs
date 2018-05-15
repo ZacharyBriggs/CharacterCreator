@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,23 +23,15 @@ namespace CharacterCreator
         {
 
             FeStats = new List<Stat>();
-            FeStats.Add(HP);
-            FeStats.Add(MaxHP);
-            FeStats.Add(Str);
-            FeStats.Add(Mag);
-            FeStats.Add(Skill);
-            FeStats.Add(Spd);
-            FeStats.Add(Luck);
-            FeStats.Add(Def);
-            FeStats.Add(Res);
-            FeStats.Add(MoveStat);
-            Mercenary = new Job("Mercenary", "Infantry",FeStats, FeStats, FeStats);
-            Guy = new Character("Dummy",Mercenary,FeStats);
-            List<Character> allCharacters = new List<Character>();
+            StatGrowths = FeStats;
+            Mercenary = new Job("Mercenary", "Infantry");
+            Guy = new Character("Dummy",Mercenary);
+            allCharacters = new List<Character>();
             List<String> key = new List<string>();
             charactersDictionary = new Dictionary<string, Character>();
             charactersDictionary.Add(Guy.Name, Guy);
-            currentCharacter = Guy;
+            allCharacters.Add(Guy);
+            currentCharacter = new Character("Current", Mercenary);
             comboBox1.Items.Add(Guy.Name);
         }
 
@@ -46,30 +39,44 @@ namespace CharacterCreator
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.Text == Guy.Name)
-                currentCharacter = Guy;
+            foreach (var person in allCharacters)
+            {
+                foreach (var name in comboBox1.Items)
+                {
+                    if (person.Name == name.ToString())
+                    {
+                        currentCharacter = person;
+                    }
+                }
+            }
             hpBox.Text = currentCharacter.Stats[0].Value.ToString();
-            maxHpBox.Text += currentCharacter.Stats[1].Value.ToString();
-            strBox.Text += currentCharacter.Stats[2].Value.ToString();
-            magBox.Text += currentCharacter.Stats[3].Value.ToString();
-            skillBox.Text += currentCharacter.Stats[4].Value.ToString();
-            spdBox.Text += currentCharacter.Stats[5].Value.ToString();
-            luckBox.Text += currentCharacter.Stats[6].Value.ToString();
-            defBox.Text += currentCharacter.Stats[7].Value.ToString();
-            resBox.Text += currentCharacter.Stats[8].Value.ToString();
-            moveBox.Text += currentCharacter.Stats[9].Value.ToString();
+            maxHpBox.Text = currentCharacter.Stats[1].Value.ToString();
+            strBox.Text = currentCharacter.Stats[2].Value.ToString();
+            magBox.Text = currentCharacter.Stats[3].Value.ToString();
+            skillBox.Text = currentCharacter.Stats[4].Value.ToString();
+            spdBox.Text = currentCharacter.Stats[5].Value.ToString();
+            luckBox.Text = currentCharacter.Stats[6].Value.ToString();
+            defBox.Text = currentCharacter.Stats[7].Value.ToString();
+            resBox.Text = currentCharacter.Stats[8].Value.ToString();
+            moveBox.Text = currentCharacter.Stats[9].Value.ToString();
             classesBox.Text = currentCharacter.Job.Name;
-            lvlBox.Text += currentCharacter.Level.ToString();
-            expBox.Text += currentCharacter.Experience.ToString();
+            lvlBox.Text = currentCharacter.Level.ToString();
+            expBox.Text = currentCharacter.Experience.ToString();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
             currentCharacter.Name = comboBox1.Text;
+            foreach (var name in comboBox1.Items)
+            {
+                if (currentCharacter.Name != name.ToString())
+                {
+                    comboBox1.Items.Add(currentCharacter.Name);
+                    break;
+                }
+            }
             //If character is not in combobox or dictionary do this
-                //comboBox1.Items.Add(currentCharacter.Name);
-                //charactersDictionary.Add(currentCharacter.Name,currentCharacter);
-            string currentChar = JsonConvert.SerializeObject(Guy);
+            string currentChar = JsonConvert.SerializeObject(currentCharacter);
             var path = System.IO.Path.Combine(Environment.CurrentDirectory, currentCharacter.Name +".json");
             System.IO.File.WriteAllText(path, currentChar);
         }
@@ -165,6 +172,14 @@ namespace CharacterCreator
             if (maxHpBox.Text != "")
                 stat = Int32.Parse(maxHpBox.Text);
             currentCharacter.Stats[1].Value = stat;
+        }
+
+        private void strGrowthBox_TextChanged(object sender, EventArgs e)
+        {
+            int stat = 0;
+            if (strGrowthBox.Text != "")
+                stat = Int32.Parse(strGrowthBox.Text);
+            currentCharacter.CharacterGrowths[2].Value = stat;
         }
     }
 }

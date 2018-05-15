@@ -47,6 +47,7 @@ namespace CharacterCreator
             this.maxHpBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.classesBox = new System.Windows.Forms.ComboBox();
+            this.strGrowthBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -192,11 +193,20 @@ namespace CharacterCreator
             this.classesBox.Size = new System.Drawing.Size(104, 21);
             this.classesBox.TabIndex = 18;
             // 
+            // strGrowthBox
+            // 
+            this.strGrowthBox.Location = new System.Drawing.Point(178, 17);
+            this.strGrowthBox.Name = "strGrowthBox";
+            this.strGrowthBox.Size = new System.Drawing.Size(28, 20);
+            this.strGrowthBox.TabIndex = 19;
+            this.strGrowthBox.TextChanged += new System.EventHandler(this.strGrowthBox_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(248, 229);
+            this.Controls.Add(this.strGrowthBox);
             this.Controls.Add(this.classesBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.maxHpBox);
@@ -238,18 +248,10 @@ namespace CharacterCreator
         private System.Windows.Forms.TextBox expBox;
         private System.Windows.Forms.TextBox hpBox;
         private Character Guy;
+        private Character Dude;
         private Character currentCharacter;
         private Job Mercenary;
-        private Stat HP = new Stat("HP", 0);
-        private Stat MaxHP = new Stat("MaxHP", 0);
-        private Stat Str = new Stat("Str", 0);
-        private Stat Mag = new Stat("Mag", 0);
-        private Stat Skill = new Stat("Skill", 0);
-        private Stat Spd = new Stat("Spd", 0);
-        private Stat Luck = new Stat("Luck", 0);
-        private Stat Def = new Stat("Def", 0);
-        private Stat Res = new Stat("Res", 0);
-        private Stat MoveStat = new Stat("Move", 0);
+        private List<Character> allCharacters;
         private List<Stat> FeStats;
         private List<Stat> StatGrowths;
         private List<Stat> MaxStats;
@@ -259,6 +261,7 @@ namespace CharacterCreator
         private System.Windows.Forms.TextBox maxHpBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox classesBox;
+        private System.Windows.Forms.TextBox strGrowthBox;
     }
 }
 
