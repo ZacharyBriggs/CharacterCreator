@@ -48,6 +48,15 @@ namespace CharacterCreator
             this.button1 = new System.Windows.Forms.Button();
             this.classesBox = new System.Windows.Forms.ComboBox();
             this.strGrowthBox = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,16 +126,16 @@ namespace CharacterCreator
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 17);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 8);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(102, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(105, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
             // lvlBox
             // 
-            this.lvlBox.Location = new System.Drawing.Point(12, 152);
+            this.lvlBox.Location = new System.Drawing.Point(13, 170);
             this.lvlBox.Name = "lvlBox";
             this.lvlBox.Size = new System.Drawing.Size(49, 20);
             this.lvlBox.TabIndex = 10;
@@ -134,7 +143,7 @@ namespace CharacterCreator
             // 
             // expBox
             // 
-            this.expBox.Location = new System.Drawing.Point(67, 152);
+            this.expBox.Location = new System.Drawing.Point(68, 170);
             this.expBox.Name = "expBox";
             this.expBox.Size = new System.Drawing.Size(49, 20);
             this.expBox.TabIndex = 11;
@@ -142,7 +151,7 @@ namespace CharacterCreator
             // 
             // hpBox
             // 
-            this.hpBox.Location = new System.Drawing.Point(12, 126);
+            this.hpBox.Location = new System.Drawing.Point(12, 144);
             this.hpBox.Multiline = true;
             this.hpBox.Name = "hpBox";
             this.hpBox.Size = new System.Drawing.Size(49, 20);
@@ -152,7 +161,7 @@ namespace CharacterCreator
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 73);
+            this.comboBox1.Location = new System.Drawing.Point(13, 90);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(104, 21);
             this.comboBox1.TabIndex = 14;
@@ -160,7 +169,7 @@ namespace CharacterCreator
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(12, 178);
+            this.saveButton.Location = new System.Drawing.Point(13, 196);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(49, 23);
             this.saveButton.TabIndex = 15;
@@ -170,15 +179,15 @@ namespace CharacterCreator
             // 
             // maxHpBox
             // 
-            this.maxHpBox.Location = new System.Drawing.Point(67, 126);
+            this.maxHpBox.Location = new System.Drawing.Point(67, 144);
             this.maxHpBox.Name = "maxHpBox";
-            this.maxHpBox.Size = new System.Drawing.Size(47, 20);
+            this.maxHpBox.Size = new System.Drawing.Size(50, 20);
             this.maxHpBox.TabIndex = 16;
             this.maxHpBox.TextChanged += new System.EventHandler(this.maxHpBox_TextChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(68, 177);
+            this.button1.Location = new System.Drawing.Point(68, 196);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(48, 23);
             this.button1.TabIndex = 17;
@@ -188,7 +197,7 @@ namespace CharacterCreator
             // classesBox
             // 
             this.classesBox.FormattingEnabled = true;
-            this.classesBox.Location = new System.Drawing.Point(12, 100);
+            this.classesBox.Location = new System.Drawing.Point(12, 117);
             this.classesBox.Name = "classesBox";
             this.classesBox.Size = new System.Drawing.Size(104, 21);
             this.classesBox.TabIndex = 18;
@@ -201,11 +210,86 @@ namespace CharacterCreator
             this.strGrowthBox.TabIndex = 19;
             this.strGrowthBox.TextChanged += new System.EventHandler(this.strGrowthBox_TextChanged);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(178, 43);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(27, 20);
+            this.textBox1.TabIndex = 20;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(178, 69);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(27, 20);
+            this.textBox2.TabIndex = 21;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(178, 147);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(27, 20);
+            this.textBox3.TabIndex = 22;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(178, 121);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(27, 20);
+            this.textBox4.TabIndex = 23;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(178, 95);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(27, 20);
+            this.textBox5.TabIndex = 24;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(178, 199);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(27, 20);
+            this.textBox6.TabIndex = 25;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(178, 173);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(27, 20);
+            this.textBox7.TabIndex = 26;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(14, 64);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(102, 20);
+            this.textBox8.TabIndex = 27;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(257, 88);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(106, 76);
+            this.button2.TabIndex = 28;
+            this.button2.Text = "Save";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(248, 229);
+            this.ClientSize = new System.Drawing.Size(460, 229);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.strGrowthBox);
             this.Controls.Add(this.classesBox);
             this.Controls.Add(this.button1);
@@ -248,8 +332,6 @@ namespace CharacterCreator
         private System.Windows.Forms.TextBox expBox;
         private System.Windows.Forms.TextBox hpBox;
         private Character Guy;
-        private Character Dude;
-        private Character currentCharacter;
         private Job Mercenary;
         private List<Character> allCharacters;
         private List<Stat> FeStats;
@@ -262,6 +344,15 @@ namespace CharacterCreator
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox classesBox;
         private System.Windows.Forms.TextBox strGrowthBox;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Button button2;
     }
 }
 

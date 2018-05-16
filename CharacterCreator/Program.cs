@@ -27,26 +27,35 @@ namespace CharacterCreator
 
     public class Modifiers
     {
+        public int Value;
+        public void ApplyMod(int moddable)
+        {
+            moddable += Value;
+        }
 
+        public void RemoveMod(int moddable)
+        {
+            moddable -= Value;
+        }
     }
 
     public class Job
     {
         public Job(string name, string type)
         {
-            BaseStats = new List<Stat>();
+            ClassStats = new List<Stat>();
             MaxStats = new List<Stat>();
             ClassGrowths = new List<Stat>();
             Name = name;
             Designation = type;
-            CreateStats(BaseStats);
+            CreateStats(ClassStats);
             CreateStats(MaxStats);
             CreateStats(ClassGrowths);
         }
         public string Name; //Name of the class.
         public string Designation; //The type of the class. Eg mounted, flying, armored
         public List<Stat> BaseWeaponRanks; //List of usable weapon types and the minimum rank this class can have.
-        public List<Stat> BaseStats; //The starting stats of the class.
+        public List<Stat> ClassStats; //The starting stats of the class.
         public List<Stat> MaxStats; //The highest this classes stats can be.
         public List<Stat> ClassGrowths; //The chances of each stat increasing by 1 on level up.
         public List<Job> Promotions; //The classes this class can promote to.
@@ -89,16 +98,18 @@ namespace CharacterCreator
         {
             Name = name;
             Job = job;
-            CharacterGrowths = new List<Stat>();
             MaxStats = new List<Stat>();
             Growths = new List<Stat>();
-            Job.CreateStats(CharacterGrowths);
-            Stats = Job.BaseStats;
-            //for (int i = 0; i < Job.ClassGrowths.Count; i++)
-            //{
-                //Growths[i].Value = Job.ClassGrowths[i].Value + CharacterGrowths[i].Value;
-                //MaxStats[i].Value += Job.MaxStats[i].Value;
-            //}
+            Stats = new List<Stat>();
+            Job.CreateStats(Growths);
+            Job.CreateStats(MaxStats);
+            Job.CreateStats(Stats);
+            for (int i = 0; i < Job.ClassGrowths.Count; i++)
+            {
+                Stats[i].Value += Job.ClassStats[i].Value;
+                Growths[i].Value += Job.ClassGrowths[i].Value;
+                MaxStats[i].Value += Job.MaxStats[i].Value;
+            }
         }
         public string Name; //Name of the character.
         public int Level; //Current level of character. Goes up by 1 when the character gets 100 experience.
@@ -106,7 +117,6 @@ namespace CharacterCreator
         public Job Job; //The character's class.
         public List<Stat> WeaponRanks; //List of usable weapons and the rank of weapons the character can use.
         public List<Item> Inventory; //List of items belonging to this character.
-        public List<Stat> CharacterGrowths; //The chances of each stat increasing by 1 on level up. These growths unique to this character..
         public List<Stat> MaxStats; //The character's class' max stats plus any modifiers unique to this character.
         public List<Stat> Stats; //Combination of this character's base stats, the class base stats,and any stat increases from level ups.
         public List<Stat> Growths; //Combination of the character's and their class' growths.
