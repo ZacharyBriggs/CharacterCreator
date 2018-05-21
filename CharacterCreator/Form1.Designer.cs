@@ -182,7 +182,7 @@ namespace CharacterCreator
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(68, 196);
+            this.button1.Location = new System.Drawing.Point(67, 241);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(48, 23);
             this.button1.TabIndex = 17;
@@ -255,11 +255,11 @@ namespace CharacterCreator
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(331, 88);
+            this.button2.Location = new System.Drawing.Point(68, 196);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 76);
+            this.button2.Size = new System.Drawing.Size(48, 23);
             this.button2.TabIndex = 28;
-            this.button2.Text = "Save";
+            this.button2.Text = "Save ";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -323,7 +323,7 @@ namespace CharacterCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 244);
+            this.ClientSize = new System.Drawing.Size(460, 276);
             this.Controls.Add(this.maxResBox);
             this.Controls.Add(this.maxDefBox);
             this.Controls.Add(this.maxLuckBox);

@@ -69,31 +69,27 @@ namespace CharacterCreator
         public Job(string name, string type)
         {
             ClassStats = new List<Stat>();
-            MaxStats = new List<Stat>();
             Name = name;
             Designation = type;
             CreateStats(ClassStats);
-            CreateStats(MaxStats);
         }
         public string Name; //Name of the class.
         public string Designation; //The type of the class. Eg mounted, flying, armored
         public List<Stat> BaseWeaponRanks; //List of usable weapon types and the minimum rank this class can have.
         public List<Stat> ClassStats; //The starting stats of the class.
-        public List<Stat> MaxStats; //The highest this classes stats can be.
-        public List<Stat> ClassGrowths; //The chances of each stat increasing by 1 on level up.
         public List<Job> Promotions; //The classes this class can promote to.
         public void CreateStats(List<Stat> stats)
         {
-            Stat HP = new Stat("HP", 0,0);
-            Stat MaxHP = new Stat("MaxHP", 0,0);
-            Stat Str = new Stat("Str", 0,0);
-            Stat Mag = new Stat("Mag", 0,0);
-            Stat Skill = new Stat("Skill", 0,0);
-            Stat Spd = new Stat("Spd", 0,0);
-            Stat Luck = new Stat("Luck", 0,0);
-            Stat Def = new Stat("Def", 0,0);
-            Stat Res = new Stat("Res", 0,0);
-            Stat MoveStat = new Stat("Move", 0,0);
+            Stat HP = new Stat("HP", 0,0,0,"");
+            Stat MaxHP = new Stat("MaxHP", 0,0,0,"");
+            Stat Str = new Stat("Str", 0,0,0,"");
+            Stat Mag = new Stat("Mag", 0,0,0,"");
+            Stat Skill = new Stat("Skill", 0,0,0,"");
+            Stat Spd = new Stat("Spd", 0,0,0,"");
+            Stat Luck = new Stat("Luck", 0,0,0,"");
+            Stat Def = new Stat("Def", 0,0,0,"");
+            Stat Res = new Stat("Res", 0,0,0,"");
+            Stat MoveStat = new Stat("Move", 0,0,0,"");
             stats.Add(HP);
             stats.Add(MaxHP);
             stats.Add(Str);
@@ -121,16 +117,14 @@ namespace CharacterCreator
         {
             Name = name;
             Job = job;
-            MaxStats = new List<Stat>();
             Stats = new List<Stat>();
-
             Job.CreateStats(MaxStats);
             Job.CreateStats(Stats);
             for (int i = 0; i < Job.ClassStats.Count; i++)
             {
                 Stats[i].Value += Job.ClassStats[i].Value;
                 Stats[i].Growth += Job.ClassStats[i].Growth;
-                MaxStats[i].Value += Job.MaxStats[i].Value;
+                Stats[i].Max += Job.ClassStats[i].Max;
             }
         }
 
@@ -158,7 +152,7 @@ namespace CharacterCreator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Form2());
         }
     }
 }
