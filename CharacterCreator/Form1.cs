@@ -91,7 +91,6 @@ namespace CharacterCreator
             {
                 var jsonstring = JsonConvert.SerializeObject(c);
                 var path = System.IO.Path.Combine(System.Environment.CurrentDirectory, "Characters/"+c.Name+".json");
-
                 System.IO.File.WriteAllText(path, jsonstring);
             }
         }
@@ -104,37 +103,70 @@ namespace CharacterCreator
             //then add that character to the allcharacters list
 
             //characters are created but added as "dUMMY"
-            var c = new Character(nameBox.Text, Mercenary);
-            c.Stats[1].Value = Int32.Parse(hpBox.Text);
-            c.Stats[1].Growth = Int32.Parse(hpGrowthBox.Text);
-            c.Stats[1].Max = Int32.Parse(maxHpBox.Text);
-            c.Stats[2].Value = Int32.Parse(strBox.Text);
-            c.Stats[2].Growth = Int32.Parse(strGrowthBox.Text);
-            c.Stats[2].Max = Int32.Parse(maxStrBox.Text);
-            c.Stats[3].Value = Int32.Parse(magBox.Text);
-            c.Stats[3].Growth = Int32.Parse(magGrowthBox.Text);
-            c.Stats[3].Max = Int32.Parse(maxMagBox.Text);
-            c.Stats[4].Value = Int32.Parse(skillBox.Text);
-            c.Stats[4].Growth = Int32.Parse(skillGrowthBox.Text);
-            c.Stats[4].Max = Int32.Parse(maxSkillBox.Text);
-            c.Stats[5].Value = Int32.Parse(spdBox.Text);
-            c.Stats[5].Growth = Int32.Parse(spdGrowthBox.Text);
-            c.Stats[5].Max = Int32.Parse(maxSpdBox.Text);
-            c.Stats[6].Value = Int32.Parse(luckBox.Text);
-            c.Stats[6].Growth = Int32.Parse(luckGrowthBox.Text);
-            c.Stats[6].Max = Int32.Parse(maxLuckBox.Text);
-            c.Stats[7].Value = Int32.Parse(defBox.Text);
-            c.Stats[7].Growth = Int32.Parse(defGrowthBox.Text);
-            c.Stats[7].Max = Int32.Parse(maxDefBox.Text);
-            c.Stats[8].Value = Int32.Parse(resBox.Text);
-            c.Stats[8].Growth = Int32.Parse(resGrowthBox.Text);
-            c.Stats[8].Max = Int32.Parse(maxResBox.Text);
-            c.Stats[9].Value = Int32.Parse(moveBox.Text);
-            c.Level = Int32.Parse(lvlBox.Text);
-            c.Experience = Int32.Parse(expBox.Text);
-            allCharacters.Add(c);
-
-
+            foreach (var person in loadedCharacters)
+            {
+                if (person.Name == comboBox1.Text)
+                {
+                    person.Stats[1].Value = Int32.Parse(hpBox.Text);
+                    person.Stats[1].Growth = Int32.Parse(hpGrowthBox.Text);
+                    person.Stats[1].Max = Int32.Parse(maxHpBox.Text);
+                    person.Stats[2].Value = Int32.Parse(strBox.Text);
+                    person.Stats[2].Growth = Int32.Parse(strGrowthBox.Text);
+                    person.Stats[2].Max = Int32.Parse(maxStrBox.Text);
+                    person.Stats[3].Value = Int32.Parse(magBox.Text);
+                    person.Stats[3].Growth = Int32.Parse(magGrowthBox.Text);
+                    person.Stats[3].Max = Int32.Parse(maxMagBox.Text);
+                    person.Stats[4].Value = Int32.Parse(skillBox.Text);
+                    person.Stats[4].Growth = Int32.Parse(skillGrowthBox.Text);
+                    person.Stats[4].Max = Int32.Parse(maxSkillBox.Text);
+                    person.Stats[5].Value = Int32.Parse(spdBox.Text);
+                    person.Stats[5].Growth = Int32.Parse(spdGrowthBox.Text);
+                    person.Stats[5].Max = Int32.Parse(maxSpdBox.Text);
+                    person.Stats[6].Value = Int32.Parse(luckBox.Text);
+                    person.Stats[6].Growth = Int32.Parse(luckGrowthBox.Text);
+                    person.Stats[6].Max = Int32.Parse(maxLuckBox.Text);
+                    person.Stats[7].Value = Int32.Parse(defBox.Text);
+                    person.Stats[7].Growth = Int32.Parse(defGrowthBox.Text);
+                    person.Stats[7].Max = Int32.Parse(maxDefBox.Text);
+                    person.Stats[8].Value = Int32.Parse(resBox.Text);
+                    person.Stats[8].Growth = Int32.Parse(resGrowthBox.Text);
+                    person.Stats[8].Max = Int32.Parse(maxResBox.Text);
+                    person.Stats[9].Value = Int32.Parse(moveBox.Text);
+                }
+                else
+                {
+                    var c = new Character(nameBox.Text, Mercenary);
+                    c.Stats[1].Value = Int32.Parse(hpBox.Text);
+                    c.Stats[1].Growth = Int32.Parse(hpGrowthBox.Text);
+                    c.Stats[1].Max = Int32.Parse(maxHpBox.Text);
+                    c.Stats[2].Value = Int32.Parse(strBox.Text);
+                    c.Stats[2].Growth = Int32.Parse(strGrowthBox.Text);
+                    c.Stats[2].Max = Int32.Parse(maxStrBox.Text);
+                    c.Stats[3].Value = Int32.Parse(magBox.Text);
+                    c.Stats[3].Growth = Int32.Parse(magGrowthBox.Text);
+                    c.Stats[3].Max = Int32.Parse(maxMagBox.Text);
+                    c.Stats[4].Value = Int32.Parse(skillBox.Text);
+                    c.Stats[4].Growth = Int32.Parse(skillGrowthBox.Text);
+                    c.Stats[4].Max = Int32.Parse(maxSkillBox.Text);
+                    c.Stats[5].Value = Int32.Parse(spdBox.Text);
+                    c.Stats[5].Growth = Int32.Parse(spdGrowthBox.Text);
+                    c.Stats[5].Max = Int32.Parse(maxSpdBox.Text);
+                    c.Stats[6].Value = Int32.Parse(luckBox.Text);
+                    c.Stats[6].Growth = Int32.Parse(luckGrowthBox.Text);
+                    c.Stats[6].Max = Int32.Parse(maxLuckBox.Text);
+                    c.Stats[7].Value = Int32.Parse(defBox.Text);
+                    c.Stats[7].Growth = Int32.Parse(defGrowthBox.Text);
+                    c.Stats[7].Max = Int32.Parse(maxDefBox.Text);
+                    c.Stats[8].Value = Int32.Parse(resBox.Text);
+                    c.Stats[8].Growth = Int32.Parse(resGrowthBox.Text);
+                    c.Stats[8].Max = Int32.Parse(maxResBox.Text);
+                    c.Stats[9].Value = Int32.Parse(moveBox.Text);
+                    c.Level = Int32.Parse(lvlBox.Text);
+                    c.Experience = Int32.Parse(expBox.Text);
+                    loadedCharacters.Add(c);
+                    comboBox1.Items.Add(c.Name);
+                }
+            }
         }
     }
 }
