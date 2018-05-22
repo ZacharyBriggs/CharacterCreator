@@ -12,6 +12,7 @@ namespace CharacterCreator
 {
     public partial class Form2 : Form
     {
+        List<Character> allCharacters = new List<Character>();
         public Form2()
         {
             InitializeComponent();
@@ -20,74 +21,67 @@ namespace CharacterCreator
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            currentCharacter = new Character("Current");
             uistats = new List<UIStat>();
             var hpgroup = new UIValueGrowthMax { ValueRef = hpBox, GrowthRef = hpGrowthBox, MaxRef = maxHpBox };
-            var strgroup = new UIValueGrowthMax { ValueRef = textBox1, GrowthRef = textBox2, MaxRef = textBox3 };
-            uistats.Add(new UIStat(new Stat() { Value = 21,Max = 25, Growth = 1 }, hpgroup));
-            uistats.Add(new UIStat(new Stat() { Value = 20, Max = 21, Growth = 2 }, strgroup));
-
-
+            var strgroup = new UIValueGrowthMax { ValueRef = strBox, GrowthRef = strGrowthBox, MaxRef = maxStrBox };
+            var maggroup = new UIValueGrowthMax { ValueRef = magBox, GrowthRef = magGrowthBox, MaxRef = maxMagBox };
+            uistats.Add(new UIStat(new Stat() { Value = 0,Max = 0, Growth = 0 }, hpgroup));
+            uistats.Add(new UIStat(new Stat() { Value = 0, Max = 0, Growth = 0 }, strgroup));
+            uistats.Add(new UIStat(new Stat() { Value = 0, Max = 0, Growth = 0 }, maggroup));
+            Character one = new Character("1");
+            Character two = new Character("2");
+            listBox1.Items.Add(one);
+            listBox1.Items.Add(two);
+            allCharacters.Add(one);
+            allCharacters.Add(two);
         }
         private void hpBox_TextChanged(object sender, EventArgs e)
         {
 
         }
-        public class UIValueGrowthMax
-        {
-            public TextBox ValueRef;
-            public TextBox GrowthRef;
-            public TextBox MaxRef;
-        }
-        public class UIStat
-        {
-            public UIStat(Stat statref, UIValueGrowthMax vgm)
-            {
-                StatRef = statref;
-                uivalue = vgm;
-            }
-            Stat StatRef;
-            UIValueGrowthMax uivalue;
-            public void Refresh()
-            {
-                uivalue.ValueRef.Text = StatRef.Value.ToString();
-                uivalue.GrowthRef.Text = StatRef.Growth.ToString();
-                uivalue.MaxRef.Text = StatRef.Max.ToString();
-            }
-
-            public void SetValues()
-            {
-                StatRef.Value = int.Parse(uivalue.ValueRef.Text);
-                StatRef.Growth = int.Parse(uivalue.GrowthRef.Text);
-                StatRef.Max = int.Parse(uivalue.MaxRef.Text);
-
-            }
-        }
-
-        public class UIStatGroup
-        {
-            UIValueGrowthMax[] vgms = new UIValueGrowthMax[9];
-            Stat[] StatsRef = new Stat[9];
-            List<UIStat> UIStats;
-            public void Refresh()
-            {
-                for (int i = 0; i < StatsRef.Length; i++)
-                    UIStats.Add(new UIStat(StatsRef[i], vgms[i]));
-                foreach (var stat in UIStats)
-                {
-                    stat.Refresh();
-                }
-            }
-        }
-
-
         private void SaveStat_button_Click(object sender, EventArgs e)
         {
-            uistats.ForEach(s => s.Refresh());
+            uistats.ForEach(s => s.Refresh()); 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             uistats.ForEach(s => s.SetValues());
+            for (int i = 0; i < 3; i++)
+            {
+                currentCharacter.Stats[i].Value = int.Parse(uistats[i].uivalue.ValueRef.Text);
+                currentCharacter.Stats[i].Growth = int.Parse(uistats[i].uivalue.GrowthRef.Text);
+                currentCharacter.Stats[i].Max = int.Parse(uistats[i].uivalue.MaxRef.Text);
+            }
+        } 
+
+        /*private void charactersBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (var character in allCharacters)
+            {
+                if (charactersBox.Text == character.Name)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        uistats[i].uivalue.ValueRef.Text = character.Stats[i].Value.ToString();
+                        uistats[i].uivalue.GrowthRef.Text = character.Stats[i].Growth.ToString();
+                        uistats[i].uivalue.MaxRef.Text = character.Stats[i].Max.ToString();
+                    }
+                }
+            }
+        }*/
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            currentCharacter = new Character();
+            currentCharacter = allCharacters[0];
+        }
+
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            currentCharacter = new Character();
+            currentCharacter = allCharacters[1];
         }
     }
 }
