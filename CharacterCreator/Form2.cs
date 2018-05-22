@@ -76,12 +76,30 @@ namespace CharacterCreator
         {
             currentCharacter = new Character();
             currentCharacter = allCharacters[0];
+            for (int i = 0; i < 3; i++)
+            {
+                uistats[i].uivalue.ValueRef.Text = currentCharacter.Stats[i].Value.ToString();
+                uistats[i].StatRef.Value = currentCharacter.Stats[i].Value;
+                uistats[i].uivalue.GrowthRef.Text = currentCharacter.Stats[i].Growth.ToString();
+                uistats[i].StatRef.Growth = currentCharacter.Stats[i].Growth;
+                uistats[i].uivalue.MaxRef.Text = currentCharacter.Stats[i].Max.ToString();
+                uistats[i].StatRef.Max = currentCharacter.Stats[i].Max;
+            }
         }
 
         private void nextButton_Click(object sender, EventArgs e)
         {
             currentCharacter = new Character();
             currentCharacter = allCharacters[1];
+            for (int i = 0; i < 3; i++)
+            {
+                uistats[i].uivalue.ValueRef.Text = currentCharacter.Stats[i].Value.ToString();
+                uistats[i].StatRef.Value = currentCharacter.Stats[i].Value;
+                uistats[i].uivalue.GrowthRef.Text = currentCharacter.Stats[i].Growth.ToString();
+                uistats[i].StatRef.Growth = currentCharacter.Stats[i].Growth;
+                uistats[i].uivalue.MaxRef.Text = currentCharacter.Stats[i].Max.ToString();
+                uistats[i].StatRef.Max = currentCharacter.Stats[i].Max;
+            }
         }
     }
 }

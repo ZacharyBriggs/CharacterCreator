@@ -1,13 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CharacterCreator
 {
-    class Character
+    public class Character
     {
+        public int Experience; //Amount of experience the character has.
+        public string Job; //Name of character's class
+        public int Level; //Current level of character. Goes up by 1 when the character gets 100 experience.
+
+        public string Name; //Name of the character.
+
+        public List<Stat>
+            Stats; //Combination of this character's base stats, the class base stats,and any stat increases from level ups.
+
         public Character(string name)
         {
             Name = name;
@@ -15,16 +20,10 @@ namespace CharacterCreator
             Stats = new List<Stat>();
             CreateStats(Stats);
         }
+
         public Character()
         {
-
         }
-
-        public string Name; //Name of the character.
-        public int Level; //Current level of character. Goes up by 1 when the character gets 100 experience.
-        public int Experience; //Amount of experience the character has.
-        public string Job; //Name of character's class
-        public List<Stat> Stats; //Combination of this character's base stats, the class base stats,and any stat increases from level ups.
 
         public void CreateStats(List<Stat> stats)
         {
