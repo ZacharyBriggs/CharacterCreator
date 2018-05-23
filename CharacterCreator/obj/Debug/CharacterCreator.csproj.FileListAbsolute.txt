@@ -18,6 +18,6 @@ C:\Users\s178020\Documents\GitHub\CharacterCreator\CharacterCreator\obj\Debug\Ch
 C:\Users\s178020\Documents\GitHub\CharacterCreator\CharacterCreator\obj\Debug\CharacterCreator.csproj.GenerateResource.Cache
 C:\Users\s178020\Documents\GitHub\CharacterCreator\CharacterCreator\obj\Debug\CharacterCreator.Form2.resources
 C:\Users\s178020\Documents\GitHub\CharacterCreator\CharacterCreator\obj\Debug\CharacterCreator.Form1.resources
-C:\Users\s178020\Documents\GitHub\CharacterCreator\CharacterCreator\bin\Debug\CharacterCreator.dll.config
-C:\Users\s178020\Documents\GitHub\CharacterCreator\CharacterCreator\bin\Debug\CharacterCreator.dll
-C:\Users\s178020\Documents\GitHub\CharacterCreator\CharacterCreator\obj\Debug\CharacterCreator.dll
+C:\Users\s178020\Documents\GitHub\CharacterCreator\CharacterCreator\bin\Debug\CharacterCreator.exe.config
+C:\Users\s178020\Documents\GitHub\CharacterCreator\CharacterCreator\bin\Debug\CharacterCreator.exe
+C:\Users\s178020\Documents\GitHub\CharacterCreator\CharacterCreator\obj\Debug\CharacterCreator.exe
