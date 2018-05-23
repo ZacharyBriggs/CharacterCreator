@@ -7,7 +7,7 @@ namespace CharacterCreator
         public int Experience; //Amount of experience the character has.
         public string Job; //Name of character's class
         public int Level; //Current level of character. Goes up by 1 when the character gets 100 experience.
-
+        public int Move; //Number of spaces this character can move.
         public string Name; //Name of the character.
 
         public List<Stat>
@@ -18,6 +18,9 @@ namespace CharacterCreator
             Name = name;
             Job = "Class";
             Stats = new List<Stat>();
+            Level = 1;
+            Experience = 0;
+            Move = 0;
             CreateStats(Stats);
         }
 
@@ -35,7 +38,6 @@ namespace CharacterCreator
             stats.Add(new Stat("Luck", 0, 0, 0, ""));
             stats.Add(new Stat("Def", 0, 0, 0, ""));
             stats.Add(new Stat("Res", 0, 0, 0, ""));
-            stats.Add(new Stat("Move", 0, 0, 0, ""));
         }
     }
 }

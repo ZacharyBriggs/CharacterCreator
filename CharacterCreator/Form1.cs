@@ -55,7 +55,7 @@ namespace CharacterCreator
         {
             for (int i = 0; i < uiStats.Count; i++)
                 uiStats[i].StatRef = c.Stats[i];
-
+            
             uiStats.ForEach(s => s.Refresh());
         }
 
@@ -64,6 +64,7 @@ namespace CharacterCreator
             loadedCharacters = new List<Character>();
             uiStats = new List<UIStat>();
 
+            
             onCharacterChanged += UiRefresh;
             onCharacterChanged += SetBoxes;
 
@@ -78,9 +79,7 @@ namespace CharacterCreator
             }
 
             foreach (var c in loadedCharacters)
-            {
-                listBox1.Items.Add(c);
-            }
+                listBox1.Items.Add(c.Name);
 
             ///-----------GROUP TEXTBOXES///
             var hpgroup = new UIValueGrowthMax { ValueRef = hpBox, GrowthRef = hpGrowthBox, MaxRef = maxHpBox };
@@ -101,17 +100,15 @@ namespace CharacterCreator
             uiStats.Add(new UIStat(new Stat("Luck", 0, 0, 0, ""), luckgroup));
             uiStats.Add(new UIStat(new Stat("Def", 0, 0, 0, ""), defgroup));
             uiStats.Add(new UIStat(new Stat("Res", 0, 0, 0, ""), resgroup));
-     
 
-            var one = new Character("1");
-            var two = new Character("2");
+            if (loadedCharacters.Capacity == 0)
+            {
+                var one = new Character("Default");
+                listBox1.Items.Add(one.Name);
+                loadedCharacters.Add(one);
+                listBox1.SelectedIndex = CurrentIndex;
+            }
 
-            listBox1.Items.Add(one);
-            listBox1.Items.Add(two);
-            loadedCharacters.Add(one);
-            loadedCharacters.Add(two);
-            listBox1.SelectedIndex = CurrentIndex;
-  
             CurrentCharacter = loadedCharacters[CurrentIndex];
             listBox1.SelectedIndexChanged += new System.EventHandler(Listchanged);
             
@@ -121,11 +118,24 @@ namespace CharacterCreator
         public void SetBoxes(Character c)
         {
             nameBox.Text = c.Name;
-            lvlBox.Text = c.Level.ToString();
+            classNameBox.Text = c.Job;
+            expValueBox.Text = c.Experience.ToString();
+            lvlValueBox.Text = c.Level.ToString();
+            moveValueBox.Text = c.Move.ToString();
+        }
+
+        public void SetOtherValues(Character c)
+        {
+            c.Name = nameBox.Text;
+            c.Job = classNameBox.Text;
+            c.Experience = int.Parse(expValueBox.Text);
+            c.Level = int.Parse(lvlValueBox.Text);
+            c.Move = int.Parse(moveValueBox.Text);
         }
 
         private void Listchanged(object sender, EventArgs e)
         {
+            SetOtherValues(CurrentCharacter);
             uiStats.ForEach(s => s.SetValues());
             var listbox = sender as ListBox;
             CurrentIndex = listBox1.SelectedIndex;
@@ -136,10 +146,24 @@ namespace CharacterCreator
         {
             foreach (var c in loadedCharacters)
             {
+                SetOtherValues(CurrentCharacter);
                 var jsonstring = JsonConvert.SerializeObject(c);
                 var path = System.IO.Path.Combine(System.Environment.CurrentDirectory, "Characters/" + c.Name + ".json");
                 File.WriteAllText(path, jsonstring);
-            } 
+            }
+            var otherpath = System.IO.Path.Combine(System.Environment.CurrentDirectory, "Characters");
+            var files = Directory.GetFiles(otherpath);
+
+            loadedCharacters = new List<Character>();
+            listBox1.Items.Clear();
+            foreach (var f in files)
+            {
+                var jsonstring = File.ReadAllText(f);
+                var character = JsonConvert.DeserializeObject<Character>(jsonstring);
+                loadedCharacters.Add(character);
+            }
+            foreach (var c in loadedCharacters)
+                listBox1.Items.Add(c.Name);
         }
 
 
@@ -157,7 +181,5 @@ namespace CharacterCreator
             listBox1.SelectedIndex = CurrentIndex;
             CurrentCharacter = loadedCharacters[CurrentIndex];
         }
-
-
     }
 }

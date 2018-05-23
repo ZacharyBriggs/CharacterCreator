@@ -188,7 +188,6 @@
         private System.Windows.Forms.TextBox hpBox;
         private System.Windows.Forms.TextBox hpGrowthBox;
         private System.Windows.Forms.TextBox maxHpBox;
-        private Stat hp;
         private Character currentCharacter;
         private System.Windows.Forms.Button SaveStat_button;
         private System.Windows.Forms.Button button1;
