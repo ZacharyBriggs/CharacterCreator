@@ -51,6 +51,12 @@ namespace CharacterCreator
             }
         }
 
+        /*Prototype: private void UiRefresh(Character c)
+	    Description: Changes all the the uiStats stat refrences to the character's stats and then refreshes the uiStats.
+	    Arguments: A character.
+	    Precondition: A character and a global uiStats.
+	    Postcondition: uiStats are set and then refreshed.
+	    Protection: Private.*/
         private void UiRefresh(Character c)
         {
             for (int i = 0; i < uiStats.Count; i++)
@@ -64,7 +70,6 @@ namespace CharacterCreator
             loadedCharacters = new List<Character>();
             uiStats = new List<UIStat>();
 
-            
             onCharacterChanged += UiRefresh;
             onCharacterChanged += SetBoxes;
 
@@ -115,6 +120,12 @@ namespace CharacterCreator
 
         }
 
+        /*Prototype: public void SetBoxes(Character c);
+	    Description: Sets the name,className,expValue,lvlValue, and moveValue's text to the characters equivalent values.
+	    Arguments: A character.
+	    Precondition: A character and text boxes.
+	    Postcondition: The text boxes are set to the values of the character's stats.
+	    Protection: Public.*/
         public void SetBoxes(Character c)
         {
             nameBox.Text = c.Name;
@@ -124,6 +135,12 @@ namespace CharacterCreator
             moveValueBox.Text = c.Move.ToString();
         }
 
+        /*Prototype: public void SetOtherValues(Character c);
+	    Description: Sets the character's values that aren't the stats to the values in the equivalent text boxes.
+	    Arguments: A character.
+	    Precondition: A character and text boxes.
+	    Postcondition: The character's stats are set to the values of the text boxes.
+	    Protection: Public.*/
         public void SetOtherValues(Character c)
         {
             c.Name = nameBox.Text;
@@ -133,6 +150,12 @@ namespace CharacterCreator
             c.Move = int.Parse(moveValueBox.Text);
         }
 
+        /*Prototype: private void Listchanged(object sender, EventArgs e);
+	    Description: Changes the currentCharacter to the listBox's highlighted character when the highlighted character is changed.
+	    Arguments: object and eventargs
+	    Precondition: uiStats, listbox, currentCharacter, list of all characters.
+	    Postcondition: The currentCharacter is changed.
+	    Protection: Private.*/
         private void Listchanged(object sender, EventArgs e)
         {
             SetOtherValues(CurrentCharacter);
@@ -142,8 +165,17 @@ namespace CharacterCreator
             CurrentCharacter = loadedCharacters[CurrentIndex];
         }
 
+        /*Prototype: private void saveButton_Click(object sender, EventArgs e);
+	    Description: Upon clicking the saveButton the currentCharacter's stats are set and all of the characters are serialized. 
+        Then the listBox and loadedCharacters lists are cleared out. All of the serialized characters are then loaded back in.
+	    Arguments: object and eventargs
+	    Precondition: A character,text boxes, somewhere to save the serialized files, a list of characters, a listbox.
+	    Postcondition: The characters are serilized out the the folder.
+	    Protection: Private.*/
         private void saveButton_Click(object sender, EventArgs e)
         {
+            SetOtherValues(CurrentCharacter);
+            uiStats.ForEach(s => s.SetValues());
             foreach (var c in loadedCharacters)
             {
                 SetOtherValues(CurrentCharacter);
@@ -166,20 +198,9 @@ namespace CharacterCreator
                 listBox1.Items.Add(c.Name);
         }
 
-
-        private void upButton_Click(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CurrentIndex--;
-            listBox1.SelectedIndex = CurrentIndex;
-            CurrentCharacter = loadedCharacters[CurrentIndex];
-           
-        }
 
-        private void downButton_Click(object sender, EventArgs e)
-        {
-            CurrentIndex++;
-            listBox1.SelectedIndex = CurrentIndex;
-            CurrentCharacter = loadedCharacters[CurrentIndex];
         }
     }
 }
