@@ -43,9 +43,16 @@ namespace CharacterCreator
 	    Protection: Public.*/
         public void SetValues()
         {
-            StatRef.Value = int.Parse(uivalue.ValueRef.Text);
-            StatRef.Growth = int.Parse(uivalue.GrowthRef.Text);
-            StatRef.Max = int.Parse(uivalue.MaxRef.Text);
+            int num;
+            bool result = int.TryParse(uivalue.ValueRef.Text, out num);
+            if (result)
+                StatRef.Value = num;
+            result = int.TryParse(uivalue.GrowthRef.Text, out num);
+            if(result)
+                StatRef.Growth = num;
+            result = int.TryParse(uivalue.MaxRef.Text, out num);
+            if(result)
+                StatRef.Max = num;
 
         }
     }
